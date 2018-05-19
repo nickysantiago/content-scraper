@@ -1,0 +1,21 @@
+{
+  "name": "content_scraper",
+  "version": "1.0.0",
+  "description": "Application that scrapes a website for info",
+  "main": "scraper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "scraper",
+    "javascript",
+    "node.js"
+  ],
+  "author": "Nicky Santiago",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "crawler": "^1.1.2",
+    "csv": "^3.1.0"
+  }
+}
