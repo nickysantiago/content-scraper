@@ -12,9 +12,9 @@ const http = require('http');
 // Check for folder named 'data', and create it if it doesn't exist.
 if(!fs.existsSync('./data')) fs.mkdirSync('./data');
 
-// CSV file should be named after the day it was created.
+// CSV file should be named after the day it was created (eg: YYYY-MM-DD).
 const date = new Date();
-const csvFileName = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}.csv`;
+const csvFileName = `${date.getFullYear()}-${date.getMonth().toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}.csv`;
 
 // Create CSV file
 fs.writeFile(`data/${csvFileName}`, '', err => err && console.log(err));
