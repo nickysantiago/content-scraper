@@ -14,7 +14,7 @@ if(!fs.existsSync('./data')) fs.mkdirSync('./data');
 
 // CSV file should be named after the day it was created (eg: YYYY-MM-DD).
 const date = new Date();
-const csvFileName = `${date.getFullYear()}-${date.getMonth().toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}.csv`;
+const csvFileName = `${date.getFullYear()}-${(date.getMonth()+1).toString().padStart(2, '0')}-${date.getDate()}.csv`;
 
 // Create CSV file
 fs.writeFile(`data/${csvFileName}`, '', err => err && console.log(err));
