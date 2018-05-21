@@ -23,7 +23,7 @@ fs.writeFile(`data/${csvFileName}`, '', err => err && console.log(err));
 const domain = 'http://shirts4mike.com/';
 
 // Array of shirts
-const shirts = [];
+const shirts = [['Title', 'Price', 'ImageURL', 'URL', 'Time']];
 
 // Number of shirts in each table
 const totalShirts = 8;
@@ -66,9 +66,9 @@ const getProductInfo = function(error, response, done) {
       shirt.push(`${date.getHours()}:${date.getMinutes().toString().padStart(2, '0')}`);
       shirts.push(shirt);
       // Wait until shirts array is completely filled to convert it to csv and save it
-      if(shirts.length === totalShirts) {
+      if(shirts.length === totalShirts+1) {
         csv.stringify(shirts, (err, output) => {
-          fs.writeFile(`data/${csvFileName}`, output, err => err && console.log(err));
+          fs.writeFile(`data/${csvFileName}`, output, {flag: 'a'}, err => err && console.log(err));
         });
       }
     }
